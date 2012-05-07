@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Chirpy.Domain.Model.Chirp>
+@{
+    ViewBag.Title = "Search Chirpy";
+}
+<section class="features">
+    <div class="text-align:center">
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <input type="text" name="query" id="query" style="width:70%; padding-right:20px" /><input type="submit" value="Search" />
+        </fieldset>
+    }
+    </div>
+    @{
+        if (Model != null)
+        {
+        <table style="width:100%">
+            <tr>
+                <th style="text-align:left">
+                    @Model.Count() Results found. 
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr style="background-color:White;border: 1px solid #FFFFFF">
+                    <td style="height:50px; width:100%">
+                        @Html.DisplayFor(modelItem => item.Value)
+                    </td>
+                </tr>
+            }
+        </table>
+        }
+    }
+</section>
+
