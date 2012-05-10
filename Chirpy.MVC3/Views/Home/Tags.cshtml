@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Chirpy.Domain.Model.ChirpTag>
+<section class="features">
+    <div>
+        <h2>What's Trending ?</h2></div>
+    <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tag) (@Html.DisplayFor(modelItem => item.TagCount))
+                </td>
+            </tr>
+        }
+    </table>
+</section>

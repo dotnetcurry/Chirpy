@@ -2,5 +2,13 @@
 bin
 obj
 
+# Visual Studio user files
+*.suo
+*.csproj.user
+
+# NuGet packages
+packages/
+!packages/repositories.config
+
 # mstest test results
 TestResults

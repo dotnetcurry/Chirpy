@@ -1,0 +1,27 @@
+﻿@model Chirpy.Domain.Model.Chirp
+@{
+    ViewBag.Title = "New Chirp";
+}
+<h2>
+    New Chirp</h2>
+<section class="features">
+    @using (Html.BeginForm())
+    {
+        <div style="padding-top:20px">
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Chirp</legend>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Value, new { cols = 50, rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Value)
+                </div>
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        </div>
+    }
+</section>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,4 +1,4 @@
 Chirpy
 ======
 
-Chirpy, a MVC 4 and RavenHQ based Twitter Clone
+Chirpy, an ASP.NET MVC and RavenHQ based Twitter Clone

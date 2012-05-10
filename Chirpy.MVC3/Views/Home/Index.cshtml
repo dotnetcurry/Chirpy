@@ -1,0 +1,19 @@
+@model IEnumerable<Chirpy.Domain.Model.Chirp>
+<p>
+    @Html.ActionLink("Chirp", "Create", "Administration")
+</p>
+<section class="features">
+    @foreach (var item in Model)
+    {
+        <div style="margin-bottom: 10px; border: 1px solid #FFFFFF">
+            <div style="height: 40px; padding: 5px; background-color: White">
+                @Html.DisplayFor(modelItem => item.Value)
+            </div>
+            <div style="padding: 2px 5px 2px 5px">
+            @*
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) | @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            *@
+            </div>
+        </div>
+    }
+</section>
