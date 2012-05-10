@@ -89,7 +89,11 @@ namespace Chirpy.Data.Repository
 
         public void DeleteChirp(int id)
         {
-            throw new NotImplementedException();
+            using (IDocumentSession session = _documentStore.OpenSession(_databaseName))
+            {
+                session.Advanced.Defer(new Raven.Abstractions.Commands.DeleteCommandData { Key = "chirps/" + id.ToString() });
+                session.SaveChanges();
+            }
         }
 
 
@@ -125,7 +129,7 @@ namespace Chirpy.Data.Repository
         {
             using (IDocumentSession session = _documentStore.OpenSession(_databaseName))
             {
-                Data.Model.Chirp dataChirp = session.Load<Data.Model.Chirp>(id.ToString());
+                Data.Model.Chirp dataChirp = session.Load<Data.Model.Chirp>("chirps/" + id.ToString());
                 return dataChirp.ToDomainChirp();
             }
         }
